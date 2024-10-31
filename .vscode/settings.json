@@ -1,0 +1,10 @@
+{
+    // https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-settings.md
+    "cmake.generator":"Ninja",
+    "cmake.configureSettings": {
+        "Python_EXECUTABLE": "${env:HOME}/repo/micromamba/envs/py38/bin/python",
+        // "PYTHON_LIBRARY": "${env:HOME}/repo/micromamba/envs/py38/lib/libpython3.so",
+        // "PYTHON_INCLUDE_DIR": "${env:HOME}/repo/micromamba/envs/py38/include",
+        // "CMAKE_TOOLCHAIN_FILE":"${env:HOME}/repo/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    }
+}
