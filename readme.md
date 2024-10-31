@@ -16,6 +16,26 @@ Or you can start with an new virtual environment named `py38` for example:
 conda env create --file conda_env.yaml
 ```
 
+
+### Setup vcpkg (to use eigen3)
+
+follow the instructions to install vcpkg: 
+https://learn.microsoft.com/en-us/vcpkg/get_started/get-started?pivots=shell-bash
+
+```bash
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg && ./bootstrap-vcpkg.sh
+./vcpkg install eigen3
+
+```
+
+Set vcpkg environment variables:
+```bash
+export VCPKG_ROOT=/path/to/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
+```
+
+
 ### setup environment variable
 first find out the location of `Python_EXECUTABLE`
 ```bash
@@ -54,7 +74,8 @@ then press `F1` and search `cmake:build`, run it to compile
 #### option 2: compile with commandline
 ```bash
 # use the actual Python_EXECUTABLE you find in previous step
-cmake -DPython_EXECUTABLE=$HOME/repo/micromamba/envs/py38/bin/python -S$(pwd) -B$(pwd)/build -G Ninja
+cmake -DPython_EXECUTABLE=$HOME/repo/micromamba/envs/py38/bin/python -DCMAKE_TOOLCHAIN_FILE=$HOME/repo/vcpkg/scripts/buildsystems/vcpkg.cmake  -S$(pwd) -B$(pwd)/build -G Ninja
+cmake --build ./build
 ```
 
 ## run python
