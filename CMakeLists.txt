@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.15...3.27)
 project(nanobind_example
   LANGUAGES C CXX)
+# set (CMAKE_CXX_STANDARD 17) # optional
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) 
 
@@ -28,10 +29,8 @@ execute_process(
   COMMAND "${Python_EXECUTABLE}" -m nanobind --cmake_dir
   OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE nanobind_ROOT)
 
-  # echo "nanobind_ROOT: ${nanobind_ROOT}"
-  message(STATUS "nanobind_ROOT: ${nanobind_ROOT}")
-
-# set(nanobind_ROOT /home/grl/repo/micromamba/envs/py38/lib/python3.8/site-packages/nanobind/cmake)
+# echo "nanobind_ROOT: ${nanobind_ROOT}"
+message(STATUS "nanobind_ROOT: ${nanobind_ROOT}")
 find_package(nanobind CONFIG REQUIRED)
 
 
