@@ -56,3 +56,13 @@ nanobind_add_module(
 )
 
 target_link_libraries(my_ext PRIVATE Eigen3::Eigen)
+
+
+nanobind_add_module(
+  motor 
+  NB_SHARED
+  STABLE_ABI
+  ${CMAKE_CURRENT_SOURCE_DIR}/my_motor.cpp
+)
+
+target_link_libraries(motor PRIVATE Eigen3::Eigen)
